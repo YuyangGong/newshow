@@ -4,6 +4,7 @@ import Router from 'vue-router'
 // lazy load components
 const loginPage = () => import('../views/login')
 const registerPage = () => import('../views/register')
+const passwordForgetPage = () => import('../views/password-forget')
 const photoAlbumPage = () => import('../views/photo-album')
 const bestPhotoPage = () => import('../views/photo-best')
 const photoDetailPage = () => import('../views/photo-detail')
@@ -36,6 +37,12 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: registerPage
+    },
+    // forget password page
+    {
+      path: '/password-forget',
+      name: 'password-forget',
+      component: passwordForgetPage
     },
     // photo wall
     {
