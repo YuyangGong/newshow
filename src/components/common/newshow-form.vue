@@ -2,6 +2,7 @@
   <div class="newshow-form">
     <img src="@/assets/logo.png" alt="logo">
     <template v-if="formType !== 'password-forget'">
+      <input v-if="formType === 'register'" v-model="name" type="text" placeholder="昵称"/>
       <input v-model="email" type="email" placeholder="邮箱"/>
       <input v-model="password" type="password" placeholder="密码"/>
       <input v-if="formType === 'register'" v-model="checkPassword" type="password" placeholder="重复密码">
@@ -27,6 +28,7 @@
 export default {
   data () {
     return {
+      name: '',
       email: '',
       password: '',
       checkPassword: ''
