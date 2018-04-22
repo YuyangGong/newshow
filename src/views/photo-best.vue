@@ -39,8 +39,8 @@ export default {
   created () {
     this.showLoading()
     setTimeout(() => {
-      this.hideLoading()
       this.items = mockData()
+      this.hideLoading()
     }, 2000)
   },
   methods: {

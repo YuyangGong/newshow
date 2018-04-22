@@ -5,8 +5,14 @@ $themeTextColor: #ffffff;
 $activeColor: #4673e0;
 $textColor: #24292e;
 
+$successColor: #5eac51;
+$failColor: #ea442d;
+$confirmColor: #4096f7;
+
 // layout
 $globalPadding: .8rem;
+$detailPadding: 1.3rem; // 详情图中的边距
+$smallDeviceDetailPadding: .6rem; // 同上, 不过用于媒体查询小屏幕(手机)
 $navbarHeight: 3.5rem;
 $footerHeight: 3rem;
 $sidebarWidth: 10rem;
