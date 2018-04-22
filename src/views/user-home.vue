@@ -170,7 +170,7 @@ export default {
       }
     }
     .user-info {
-      width: 5rem;
+      max-width: 5rem;
       font-size: .7rem;
       text-align: left;
       div:first-child {
@@ -180,6 +180,7 @@ export default {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        padding-bottom: 1rem;
       }
     }
   }
@@ -211,6 +212,22 @@ export default {
       span:last-child {
         margin-left: -.2rem;
       }
+    }
+  }
+}
+@media (max-width: $MQMobile) {
+  .user-home {
+    padding-top: 2px;
+    .user-aside {
+      position: relative;
+      box-sizing: border-box;
+      width: 100%;
+      .user-info {
+        text-align: center;
+      }
+    }
+    .user-main {
+      padding-left: 1rem;
     }
   }
 }
