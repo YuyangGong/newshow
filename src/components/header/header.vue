@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" :class="{'fixed-header': isFixed}">
     <sidebar-button @toggle-sidebar="$emit('toggle-sidebar')"/>
     <img
       class="logo"
@@ -47,6 +47,10 @@ export default {
       default () {
         return null
       }
+    },
+    isFixed: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
@@ -66,6 +70,7 @@ export default {
   color: $themeTextColor;
   background-color: $themeColor;
   box-shadow: 0 3px 12px rgba(27,31,35,.3);
+  z-index: 2;
   .logo {
     height: 2rem;
     margin-right: 1.2rem;
@@ -77,6 +82,13 @@ export default {
       @include nav-button;
     }
   }
+}
+.fixed-header {
+  position: fixed;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 /* mobile header style */
 @media (max-width: $MQMobile) {

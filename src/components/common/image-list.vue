@@ -38,7 +38,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scope>
+<style lang="scss">
 .image-list {
   position: relative;
   margin-left: auto;

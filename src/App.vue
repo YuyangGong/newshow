@@ -5,6 +5,7 @@
     <newshow-header
       :items="navItems"
       :activeItem="activeItem"
+      :isFixed="isHeaderFixed"
       @route-to="routeTo"
       @route-to-current-user-profile="routeTo(currentUserPath)"
       @login="login"
@@ -20,7 +21,7 @@
       @toggle-sidebar="toggleSidebar"
       />
     <router-view :style="{minHeight: mainMinHeight}" class="content"/>
-    <newshow-footer :copyrightText="copyrightText" ref="footer"/>
+    <newshow-footer :copyrightText="copyrightText" :isFixed="isFooterFixed" ref="footer"/>
     <loading-snippet v-show="isLoading" class="loading-snippet"/>
   </div>
 </template>
@@ -92,6 +93,13 @@ export default {
         3.5 * rootFontSize - // header.clientHeight 3.5rem
         3 * rootFontSize + // footer.clientHeight 3rem
         'px' // remember to apply unit
+    },
+    // user-home manager-page 需要footer进行fixed定位
+    isFooterFixed () {
+      return ['user-home', 'manager-page'].indexOf(this.$route.name) > -1
+    },
+    isHeaderFixed () {
+      return ['user-home', 'manager-page'].indexOf(this.$route.name) > -1
     }
   },
   methods: {

@@ -10,6 +10,7 @@ const bestPhotoPage = () => import('../views/photo-best')
 const photoDetailPage = () => import('../views/photo-detail')
 const photoWallPage = () => import('../views/photo-wall')
 const userHomePage = () => import('../views/user-home')
+// const managerPage = () => import('../views/manager-page')
 
 Vue.use(Router)
 
@@ -65,12 +66,20 @@ export default new Router({
     // photo detail page
     {
       path: '/photo/:photoid',
+      name: 'photo-detail',
       component: photoDetailPage
     },
     // user home page
     {
       path: '/user/:userid',
+      name: 'user-home',
       component: userHomePage
     }
+    // ,
+    // {
+    //   path: '/manager',
+    //   name: 'manager-page',
+    //   component: managerPage
+    // }
   ]
 })

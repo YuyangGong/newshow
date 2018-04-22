@@ -71,6 +71,7 @@ export default {
   border: 1px solid #eaecef;
   background-color: $themeTextColor;
   font-size: .85rem;
+  z-index: 2;
   li {
     box-sizing: border-box;
     width: $sidebarWidth;
