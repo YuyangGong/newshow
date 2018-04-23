@@ -12,7 +12,11 @@
         >{{ album.name }}</option>
       </select>
     </div>
-    <button class="upload-btn" @click="uploadPhotos">开始上传</button>
+    <div>
+      <span class="add-photo-btn">添加照片<input type="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"/>
+      </span>
+      <button class="upload-btn" @click="uploadPhotos">开始上传</button>
+    </div>
   </div>
 </template>
 
@@ -70,7 +74,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid #d2d2d2;
-  .upload-btn {
+  .upload-btn, .add-photo-btn {
     font-size: .6rem;
     border-radius: 2px;
     border: none;
@@ -82,6 +86,18 @@ export default {
     transition: opacity .3s;
     &:hover {
       opacity: .8;
+    }
+  }
+  .add-photo-btn {
+    position: relative;
+    margin-right: 1rem;
+    input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
     }
   }
   .footer-album {

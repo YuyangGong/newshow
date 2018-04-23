@@ -22,7 +22,7 @@ function getData () {
   return new Array(20).fill().map((_, idx) => ({
     name: `test${idx}.jpg`,
     size: 32423,
-    progress: 0,
+    progress: idx * 3,
     url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524324072440&di=f4d83ec02a9b6fe5af2aed93034c2ed8&imgtype=0&src=http%3A%2F%2Fpic2.16pic.com%2F00%2F38%2F06%2F16pic_3806677_b.jpg'
   }))
 }

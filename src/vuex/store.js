@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import user from './modules/user'
+import upload from './modules/upload'
 import * as types from './mutation-types'
 import createLogger from 'vuex/dist/logger'
 
@@ -30,7 +31,8 @@ const mutations = {
 
 const store = new Vuex.Store({
   modules: {
-    user
+    user,
+    upload
   },
   state,
   getters,
