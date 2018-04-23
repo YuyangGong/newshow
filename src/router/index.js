@@ -25,7 +25,10 @@ export default new Router({
     {
       path: '/home',
       name: 'home',
-      component: photoWallPage
+      component: photoWallPage,
+      meta: {
+        showUploadWidget: true
+      }
     },
     // login
     {
@@ -49,31 +52,47 @@ export default new Router({
     {
       path: '/photo-wall',
       name: 'photo-wall',
-      component: photoWallPage
+      component: photoWallPage,
+      meta: {
+        showUploadWidget: true
+      }
     },
     // photo album
     {
       path: '/photo-album',
       name: 'photo-album',
-      component: photoAlbumPage
+      component: photoAlbumPage,
+      meta: {
+        requiresAuth: true,
+        showUploadWidget: true
+      }
     },
     // best photo page
     {
       path: '/best-photo',
       name: 'best-photo',
-      component: bestPhotoPage
+      component: bestPhotoPage,
+      meta: {
+        showUploadWidget: true
+      }
     },
     // photo detail page
     {
       path: '/photo/:photoid',
       name: 'photo-detail',
-      component: photoDetailPage
+      component: photoDetailPage,
+      meta: {
+        showUploadWidget: true
+      }
     },
     // user home page
     {
       path: '/user/:userid',
       name: 'user-home',
-      component: userHomePage
+      component: userHomePage,
+      meta: {
+        showUploadWidget: true
+      }
     }
     // ,
     // {

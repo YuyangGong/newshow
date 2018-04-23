@@ -22,6 +22,7 @@
       />
     <router-view :style="{minHeight: mainMinHeight}" class="content"/>
     <newshow-footer :copyrightText="copyrightText" :isFixed="isFooterFixed" ref="footer"/>
+    <upload-widget v-if="isShowUploadWidget"/>
     <loading-snippet v-show="isLoading" class="loading-snippet"/>
   </div>
 </template>
@@ -32,15 +33,19 @@
 import newshowHeader from 'components/header/header.vue'
 import newshowSidebar from 'components/header/sidebar.vue'
 import newshowFooter from 'components/footer/footer.vue'
+import uploadWidget from 'components/upload-widget/upload.vue'
 import loadingSnippet from 'components/common/loading-snippet.vue'
+
 import { mapGetters } from 'Vuex'
 
 export default {
   name: 'App',
+
   components: {
     newshowHeader,
     newshowSidebar,
     newshowFooter,
+    uploadWidget,
     loadingSnippet
   },
   data () {
@@ -83,12 +88,9 @@ export default {
     // 设置内容区最小高度, 防止footer“挤”上来
     mainMinHeight () {
       const heightSum = document.body.clientHeight
-      console.log(heightSum)
       // root font size
       const rootFontSize = +getComputedStyle(document.querySelector('html')).fontSize.replace(/px$/, '')
       // acorrding to `variables.scss`
-      console.log(rootFontSize)
-      console.log()
       return heightSum - // visible area sum height
         3.5 * rootFontSize - // header.clientHeight 3.5rem
         3 * rootFontSize + // footer.clientHeight 3rem
@@ -100,6 +102,10 @@ export default {
     },
     isHeaderFixed () {
       return ['user-home', 'manager-page'].indexOf(this.$route.name) > -1
+    },
+    isShowUploadWidget () {
+      // 上传组件的显示需要满足: 1. 用户已经登录  2. 当前页面showUploadWidget为真
+      return this.$route.meta.showUploadWidget
     }
   },
   methods: {
@@ -153,6 +159,7 @@ export default {
 }
 .loading-snippet {
   top: $navbarHeight / 4 * 3;
+  z-index: 9;
 }
 @media (max-width: $MQMobile) {
   .content {
