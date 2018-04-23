@@ -92,7 +92,6 @@ export default {
       if (!this.photos) {
         return null
       }
-      console.log(this.photos)
       const res = []
       let wrapObj = null
       this.photos.forEach(photo => {
@@ -113,7 +112,6 @@ export default {
         }
       })
       wrapObj && res.push(wrapObj)
-      console.log(res)
       return res
     }
   },

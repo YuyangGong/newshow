@@ -22,7 +22,7 @@
       />
     <router-view :style="{minHeight: mainMinHeight}" class="content"/>
     <newshow-footer :copyrightText="copyrightText" :isFixed="isFooterFixed" ref="footer"/>
-    <upload-widget v-if="isShowUploadWidget"/>
+    <upload-widget v-if="isShowUploadWidget" class="upload-widget"/>
     <loading-snippet v-show="isLoading" class="loading-snippet"/>
   </div>
 </template>
@@ -156,6 +156,10 @@ export default {
   box-sizing: border-box;
   padding-top: $globalPadding * 1.5;
   padding-bottom: $globalPadding * 1.5;
+  z-index: 1;
+}
+.upload-widget {
+  z-index: 5;
 }
 .loading-snippet {
   top: $navbarHeight / 4 * 3;

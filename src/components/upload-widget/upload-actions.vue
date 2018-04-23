@@ -9,7 +9,8 @@
             <div v-show="isShowPhoneTip" class="phone-tip">联系客服: 110120119</div>
           </transition>
         </div>
-        <div class="action-photo icon-file-picture upload-icon"></div>
+        <div class="action-photo icon-file-picture upload-icon"
+          @click="$emit('toggle-dashboard')"></div>
       </div>
     </transition>
     <div
@@ -23,8 +24,8 @@
 export default {
   data () {
     return {
-      isShowList: true,
-      isShowPhoneTip: true
+      isShowList: false,
+      isShowPhoneTip: false
     }
   },
   methods: {

@@ -1,7 +1,7 @@
 <template>
   <div class="upload-container">
-    <upload-dashboard v-show="isShowDashboard"/>
-    <upload-actions/>
+    <upload-dashboard v-show="isShowDashboard" @toggle-dashboard="toggleDashboard"/>
+    <upload-actions @toggle-dashboard="toggleDashboard"/>
   </div>
 </template>
 
@@ -12,7 +12,14 @@ import uploadActions from './upload-actions'
 export default {
   data () {
     return {
-      isShowDashboard: false
+      isShowDashboard: true
+    }
+  },
+  methods: {
+    toggleDashboard (to) {
+      this.isShowDashboard = typeof to === 'boolean'
+        ? to
+        : !this.isShowDashboard
     }
   },
   components: {
