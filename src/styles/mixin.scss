@@ -9,3 +9,14 @@
     background-color: $activeColor;
   }
 }
+
+// user avator placeholder
+// 传入size决定头像占位符大小, 单位为rem 
+@mixin avator-placeholder ($size:2.4rem) {
+  display: inline-block;
+  font-size: $size - .6rem;
+  color: #f7fff7;
+  background-color: #ededec;
+  padding: .3rem;
+  border-radius: 50%;
+}

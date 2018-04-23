@@ -43,6 +43,11 @@
       </div>
       <div class="photo-comments photo-section"
         v-if="comments && comments.length">
+        <div class="comments-title">
+          评论
+        </div>
+        <comment-list
+          :initComments="photo.comments"/>
       </div>
     </template>
   </div>
@@ -69,25 +74,28 @@ function mockData (id) {
     commentsTotal: 10,
     comments: [
       {
+        id: '1',
         content: '很好, 很棒',
         ownerId: '2',
         ownerName: '小笨蛋',
         avator: '',
-        timestamp: new Date() - id * 1000 * 60 * 60 * 24 * Math.random() * 3 | 0
+        timestamp: new Date() - (3 * 1000 * 60 * 60 * 24)
       },
       {
+        id: '2',
         content: '来帮忙顶一顶~',
         ownerId: '4',
         ownerName: '大坏蛋',
         avator: '',
-        timestamp: new Date() - id * 1000 * 60 * 60 * 24 * Math.random() * 3 | 0
+        timestamp: new Date() - (1 * 1000 * 60 * 60 * 24)
       },
       {
+        id: '3',
         content: '啦啦啦啦啦~ 加油呀~',
         ownerId: '7',
         ownerName: '小飞机',
         avator: '',
-        timestamp: new Date() - id * 1000 * 60 * 60 * 24 * Math.random() * 3 | 0
+        timestamp: new Date() - (2 * 1000 * 60 * 60 * 24)
       }
     ]
   }
@@ -138,6 +146,9 @@ export default {
         this.commentContent = ''
       }
     }
+  },
+  components: {
+    commentList
   }
 }
 </script>
@@ -243,12 +254,7 @@ export default {
     padding-top: .6rem;
     padding-bottom: .6rem;
     span:first-child {
-      display: inline-block;
-      font-size: 1.8rem;
-      color: #f7fff7;
-      background-color: #ededec;
-      padding: .3rem;
-      border-radius: 50%;
+      @include avator-placeholder;
     }
     span:last-child {
       margin-left: .5rem;
@@ -293,6 +299,27 @@ export default {
       margin-top: .2rem;
       font-size: .7rem;
       color: $failColor;
+    }
+  }
+  .photo-comments {
+    margin-top: 1rem;
+    border: 1px solid #f1f1f1;
+    color: $textColor;
+    .comments-title {
+      position: relative;
+      margin-bottom: .5rem;
+      font-size: 1.6rem;
+      overflow: hidden;
+      &:after {
+        content: '';
+        top: 50%;
+        left: 3.8rem;
+        transform: translateY(-50%);
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #f1f1f1;
+      }
     }
   }
 }
